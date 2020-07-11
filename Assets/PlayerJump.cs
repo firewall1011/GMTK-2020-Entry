@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    public enum GroundDetectionMode
+    {
+        Raycast,
+        SphereCast
+    }
+
     public bool IsGrounded { get; set; }
 
     public float JumpForce = 10f;
     public float MaxDistance = 0.5f;
-    
+    public float Radius = 0.5f;
+    public GroundDetectionMode GroundDetection = 0;
+
 
     private Rigidbody _rigidbody;
 
@@ -30,9 +38,20 @@ public class PlayerJump : MonoBehaviour
     {
         //Test to see if there is a hit using a BoxCast
         //Also fetch the hit data
-        RaycastHit hit;
+        RaycastHit hit = new RaycastHit();
+        Ray detectionRay = new Ray(transform.position, Vector3.down);
 
-        IsGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, MaxDistance);
+        switch (GroundDetection)
+        {
+            case GroundDetectionMode.Raycast:
+                IsGrounded = Physics.Raycast(detectionRay, out hit, MaxDistance);
+                break;
+
+            case GroundDetectionMode.SphereCast:
+                IsGrounded = Physics.SphereCast(detectionRay, Radius, out hit, MaxDistance);
+                break;
+        }
+
         if (IsGrounded)
         {
             //Output the name of the Collider your Box hit
@@ -49,15 +68,12 @@ public class PlayerJump : MonoBehaviour
         if (IsGrounded)
         {
             Gizmos.color = Color.green;
-            //Draw a Ray forward from GameObject toward the hit
-            Gizmos.DrawRay(transform.position, Vector3.down * MaxDistance);
         }
-        //If there hasn't been a hit yet, draw the ray at the maximum distance
         else
         {
             Gizmos.color = Color.red;
-            //Draw a Ray forward from GameObject toward the maximum distance
-            Gizmos.DrawRay(transform.position, Vector3.down * MaxDistance);
         }
+        Gizmos.DrawRay(transform.position, Vector3.down * MaxDistance);
+        Gizmos.DrawWireSphere(transform.position, Radius);
     }
 }

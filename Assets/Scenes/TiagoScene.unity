@@ -643,7 +643,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpForce: 10
-  MaxDistance: 0.8
+  MaxDistance: 1
+  Radius: 0.4
+  GroundDetection: 1
 --- !u!54 &1753114526
 Rigidbody:
   m_ObjectHideFlags: 0
