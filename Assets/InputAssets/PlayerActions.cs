@@ -25,6 +25,14 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ShapeShiftCMD"",
+                    ""type"": ""Button"",
+                    ""id"": ""78dd2052-6af3-4271-8b42-e2903131ac94"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -38,6 +46,17 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a1af9a0f-8925-4900-9dd6-9bf1d66bd664"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShapeShiftCMD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -47,6 +66,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
         // gameplay
         m_gameplay = asset.FindActionMap("gameplay", throwIfNotFound: true);
         m_gameplay_Jump = m_gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_gameplay_ShapeShiftCMD = m_gameplay.FindAction("ShapeShiftCMD", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -97,11 +117,13 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_gameplay_Jump;
+    private readonly InputAction m_gameplay_ShapeShiftCMD;
     public struct GameplayActions
     {
         private @PlayerActions m_Wrapper;
         public GameplayActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Jump => m_Wrapper.m_gameplay_Jump;
+        public InputAction @ShapeShiftCMD => m_Wrapper.m_gameplay_ShapeShiftCMD;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -114,6 +136,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @ShapeShiftCMD.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShapeShiftCMD;
+                @ShapeShiftCMD.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShapeShiftCMD;
+                @ShapeShiftCMD.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShapeShiftCMD;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -121,6 +146,9 @@ public class @PlayerActions : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @ShapeShiftCMD.started += instance.OnShapeShiftCMD;
+                @ShapeShiftCMD.performed += instance.OnShapeShiftCMD;
+                @ShapeShiftCMD.canceled += instance.OnShapeShiftCMD;
             }
         }
     }
@@ -128,5 +156,6 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     public interface IGameplayActions
     {
         void OnJump(InputAction.CallbackContext context);
+        void OnShapeShiftCMD(InputAction.CallbackContext context);
     }
 }

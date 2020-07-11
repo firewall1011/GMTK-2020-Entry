@@ -12,6 +12,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ShapeShiftCMD",
+                    "type": "Button",
+                    "id": "78dd2052-6af3-4271-8b42-e2903131ac94",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -23,6 +31,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1af9a0f-8925-4900-9dd6-9bf1d66bd664",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShapeShiftCMD",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
