@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 192a18a8744e3d543b90ba4dcb8fd802
+guid: da3bed1f4b5ca4c408acbad59cce2922
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Candle
+    second: {fileID: 2100000, guid: 65db9385d9bc5014e8538b4f96b5109e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CandleFire
+    second: {fileID: 2100000, guid: b22573b2bc8e02f44b1bd8dd6b07c292, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CandleHolder
+    second: {fileID: 2100000, guid: c2298fa5ab3aa884d90732d71a38df18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 5a204bd5edd791e49832ba281261b964, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
