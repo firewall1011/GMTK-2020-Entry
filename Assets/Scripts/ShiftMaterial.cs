@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShiftMaterial : MonoBehaviour
 {
-    [SerializeField] private ShapeMaterialSO material;
+    [SerializeField] private ShapeMaterialSO material = null;
 
     private Rigidbody _rigidbody;
     private PlayerJump _playerJump;
