@@ -30,6 +30,15 @@ public class TerrainRotation : MonoBehaviour
         transform.Rotate(angleRotation);
     }
 
-    private void OnEnable() => _inputActions.Enable();
+    private void OnEnable()
+    {
+        _inputActions.Enable();
+
+        Rigidbody _rigidbody = GetComponent<Rigidbody>();
+
+        _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+        _rigidbody.angularDrag = 0.05f;
+        _rigidbody.isKinematic = true;
+    }
     private void OnDisable() => _inputActions.Disable();
 }
