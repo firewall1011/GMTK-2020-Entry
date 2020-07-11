@@ -5,6 +5,7 @@ using UnityEngine;
 public class TorqueRotation : MonoBehaviour
 {
     public float AngleSpeed = 45f;
+    public float AngularDrag = 1f;
     //[SerializeField] private Space RotationSpace = 0;
     [SerializeField] private Vector2 _rotationDirection = Vector2.zero;
     [SerializeField] private ForceMode _forceMode = ForceMode.Acceleration;
@@ -43,6 +44,13 @@ public class TorqueRotation : MonoBehaviour
         }
     }
 
-    private void OnEnable() => _inputActions.Enable();
+    private void OnEnable()
+    {
+        _inputActions.Enable();
+
+        _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        _rigidbody.angularDrag = AngularDrag;
+        _rigidbody.isKinematic = false;
+    }
     private void OnDisable() => _inputActions.Disable();
 }

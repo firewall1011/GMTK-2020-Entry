@@ -51,12 +51,6 @@ public class PlayerJump : MonoBehaviour
                 IsGrounded = Physics.SphereCast(detectionRay, Radius, out hit, MaxDistance);
                 break;
         }
-
-        if (IsGrounded)
-        {
-            //Output the name of the Collider your Box hit
-            Debug.Log("Hit : " + hit.collider.name);
-        }
     }
 
     //Draw the BoxCast as a gizmo to show where it currently is testing. Click the Gizmos button to see this
