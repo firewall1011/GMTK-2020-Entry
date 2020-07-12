@@ -16,7 +16,7 @@ public class VictoryZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _gameStateManager.ActivateVictory("You have reached a victory zone!");
+            _gameStateManager.ActivateVictory("You Won!");
         }
     }
 }
