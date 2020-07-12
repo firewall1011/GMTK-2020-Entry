@@ -6,9 +6,6 @@ using UnityEditor;
 [CustomEditor(typeof(ShapeShift))]
 public class ShapeShiftEditor : Editor
 {
-
-    int shapeToShift = 0;
-
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
