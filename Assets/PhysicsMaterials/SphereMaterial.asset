@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 5
   physicMaterial: {fileID: 13400000, guid: 2c43aad8f0fd1654bbf5b439f2878314, type: 2}
-  JumpForce: 20
+  JumpForce: 30
   MaxDistance: 1
   Radius: 0
   GroundDetection: 0

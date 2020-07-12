@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2d5ee7a193e624cbdebc6d8c0c665f, type: 3}
   m_Name: CubeMaterial
   m_EditorClassIdentifier: 
-  mass: 1000
+  mass: 100
   physicMaterial: {fileID: 13400000, guid: 60f68ba3c2722e34586b5751d21d6c56, type: 2}
+  JumpForce: 0
+  MaxDistance: 0
+  Radius: 0
+  GroundDetection: 0
