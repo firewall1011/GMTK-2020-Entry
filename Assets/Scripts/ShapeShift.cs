@@ -50,6 +50,10 @@ public class ShapeShift : MonoBehaviour
 
     public void OnBeat()
     {
+        if (PauseMenu.GameIsPaused)
+        {
+            return;
+        }
         _beatCount++;
         if(_beatCount >= BeatsPerChange)
         {
