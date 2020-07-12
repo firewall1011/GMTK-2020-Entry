@@ -9,10 +9,12 @@ public class ShapeShift : MonoBehaviour
 
     [SerializeField] private GameObject[] Shapes = null;
     [SerializeField] private int InitialShape = 0;
+    [SerializeField] private int BeatsPerChange = 4;
 
     public int ActiveShapeIndex { get => _activeShapeIndex; }
 
-    private int _activeShapeIndex;
+    private int _activeShapeIndex = 0;
+    private int _beatCount = 0;
 
     private void Awake()
     {
@@ -44,6 +46,16 @@ public class ShapeShift : MonoBehaviour
     public void OnShapeShiftCMD()
     {
         ShiftToNextShape();
+    }
+
+    public void OnBeat()
+    {
+        _beatCount++;
+        if(_beatCount >= BeatsPerChange)
+        {
+            _beatCount = 0;
+            ShiftToNextShape();
+        }
     }
 
 }
