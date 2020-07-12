@@ -43,11 +43,6 @@ public class ShapeShift : MonoBehaviour
         ShiftShape(index);
     }
 
-    public void OnShapeShiftCMD()
-    {
-        ShiftToNextShape();
-    }
-
     public void OnBeat()
     {
         if (PauseMenu.GameIsPaused)
