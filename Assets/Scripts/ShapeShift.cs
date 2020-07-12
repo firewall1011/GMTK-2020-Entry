@@ -30,9 +30,9 @@ public class ShapeShift : MonoBehaviour
 
     public void ShiftShape(int index)
     {
+        Shapes[index].SetActive(true);
         Shapes[_activeShapeIndex].SetActive(false);
         _activeShapeIndex = index;
-        Shapes[index].SetActive(true);
 
         OnShapeShift?.Invoke(_activeShapeIndex);
     }
